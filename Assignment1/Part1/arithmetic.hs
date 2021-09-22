@@ -48,7 +48,9 @@ multN (S n) m = addN (multN n m) m
 ----------------
 -- QQ Arithmetic
 ----------------
-
+addP :: PP -> PP -> PP
+addP I m = (T m)
+addP (T n) m = T (addP n m)
 
 
 
