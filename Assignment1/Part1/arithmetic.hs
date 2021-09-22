@@ -72,3 +72,6 @@ addP (T n) m = T (addP n m)
 main = do
     print $ addN (S (S O)) (S O)
     print $ multN (S (S O)) (S (S (S O)))
+    print $ addP (T I) (T I)
+    print $ addP (T (T I)) (T I)
+    print $ addP (T (T I)) (T (T (T I)))
