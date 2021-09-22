@@ -14,7 +14,6 @@ data II = II NN NN
 
 -- Positive integers (to avoid dividing by 0)
 data PP = I | T PP
-  deriving(Eq, Show)
 
 -- Rational numbers
 data QQ =  QQ II PP
@@ -32,7 +31,6 @@ addN :: NN -> NN -> NN
 addN O m = m
 addN (S n) m = S (addN n m)
 
-
 -- multiply natural numbers
 multN :: NN -> NN -> NN
 multN O m = O
@@ -41,29 +39,17 @@ multN (S n) m = addN (multN n m) m
 ----------------
 -- II Arithmetic
 ----------------
---addP :: PP -> PP -> PP
---multP :: PP -> PP -> PP
---ii_pp :: PP -> II
-
 
 
 ----------------
 -- QQ Arithmetic
 ----------------
---addQ :: QQ -> QQ -> QQ
---multQ :: QQ -> QQ -> QQ
-addP :: PP -> PP -> PP
-addP I m = (T m)
-addP (T n) m = T (addP n m)
-
-
-
 
 
 ----------------
 -- Normalisation
 ----------------
---normalizeI :: II -> II
+
 
 ----------------------------------------------------
 -- Converting between VM-numbers and Haskell-numbers
@@ -76,6 +62,7 @@ addP (T n) m = T (addP n m)
 main = do
     print $ addN (S (S O)) (S O)
     print $ multN (S (S O)) (S (S (S O)))
-    print $ addP (T I) (T I)
-    print $ addP (T (T I)) (T I)
-    print $ addP (T (T I)) (T (T (T I)))
+
+
+
+
