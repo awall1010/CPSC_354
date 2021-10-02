@@ -12,7 +12,7 @@
 --int_pp :: PP->Integer
 
 
---loat_qq :: QQ -> Float
+--float_qq :: QQ -> Float --truncating float to int
 --float_qq :: QQ (n m) = fromInteger(int_ii(n))/fromInteger(int_pp(m))
 
 
@@ -51,6 +51,14 @@ multN :: NN -> NN -> NN
 multN O m = O
 multN (S n) m = addN (multN n m) m
 
+
+-- subtract natural numbers
+subN :: NN -> NN -> NN
+subN O m = O
+subN m O = m
+subN (S n) (S m) = subN n m
+
+
 ----------------
 -- II Arithmetic (II is natural number natural number) with declarer
 -- -- Addition: (ac)-(bd)=
@@ -59,9 +67,11 @@ addI :: II -> II -> II
 addI (II a b) (II c d) = II (addN a c) (addN b d)
 
 --multI :: II -> II -> II
---multI
+--multI (II a b) (II c d) = II (addN (multN a c) (multN b d)) (II addN (multN a d) (b c))
 
-
+-- II Subtraction (a-b)-(c-d)=(a+d)-(b+c)
+--subtrI :: II -> II -> II
+--subtrI (a b) (c d) = subN
 
 ----------------
 -- QQ Arithmetic
@@ -127,6 +137,8 @@ addP (T n) m = T (addP n m)
 ----------
 main = do
     print $ addN (S (S O)) (S O)
+    --print $
+    print $ subN (S(S (S O))) (S O)
     print $ multN (S (S O)) (S (S (S O)))
     print $ addP (T I) (T I)
     print $ addP (T (T I)) (T I)
@@ -139,23 +151,3 @@ main = do
 
     --multP O m = O
     --multP (S n) m = addN (multN n m) m
-
-
-
-
-
---    Prelude> :info Float
---data Float = GHC.Types.F# GHC.Prim.Float#
-        -- Defined in ‘GHC.Types’
---instance Eq Float -- Defined in ‘GHC.Classes’
---instance Ord Float -- Defined in ‘GHC.Classes’
---instance Enum Float -- Defined in ‘GHC.Float’
---instance Floating Float -- Defined in ‘GHC.Float’
---instance Fractional Float -- Defined in ‘GHC.Float’
---instance Num Float -- Defined in ‘GHC.Float’
---instance Real Float -- Defined in ‘GHC.Float’
---instance RealFloat Float -- Defined in ‘GHC.Float’
---instance RealFrac Float -- Defined in ‘GHC.Float’
---instance Show Float -- Defined in ‘GHC.Float’
---instance Read Float -- Defined in ‘GHC.Read’
---Prelude>
