@@ -121,8 +121,9 @@ int_pp(T n) = 1+ int_pp n
 
 
 
---int_ii ::  II -> Integer
---int_ii a b = int_nn(subN a b)
+int_ii ::  II -> Integer
+int_ii (II (O) (O)) = 0
+int_ii (II (n) (m)) = int_nn(n) - int_nn(m)
 
 
 --float_qq :: QQ -> Float --truncating float to int
