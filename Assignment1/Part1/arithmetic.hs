@@ -12,8 +12,6 @@
 --int_pp :: PP->Integer
 
 
---float_qq :: QQ -> Float --truncating float to int
---float_qq :: QQ (n m) = fromInteger(int_ii(n))/fromInteger(int_pp(m))
 
 
 
@@ -66,8 +64,9 @@ subN (S n) (S m) = subN n m
 addI :: II -> II -> II
 addI (II a b) (II c d) = II (addN a c) (addN b d)
 
---multI :: II -> II -> II
+multI :: II -> II -> II
 --multI (II a b) (II c d) = II (addN (multN a c) (multN b d)) (II addN (multN a d) (b c))
+multI (II a b) (II c d) = II (addN (multN a c) (multN b d)) (addN (multN a d)(multN b c))
 
 -- II Subtraction (a-b)-(c-d)=(a+d)-(b+c)
 subtrI :: II -> II -> II
@@ -91,7 +90,8 @@ multP (T n)m = addP(multP n m )m
 
 
 -- convert numbers of type PP to numbers of type II
---ii_pp :: PP -> II
+ii_pp :: PP -> II
+ii_pp I = II(S O) O
 
 nn_int :: Integer -> NN
 nn_int 0 = O
@@ -115,17 +115,22 @@ int_pp I =1
 int_pp(T n) = 1+ int_pp n
 
 
+
+
 --int_ii :: II -> Integer
 
---int_pp :: PP->Integer
 
 
 --int_ii ::  II -> Integer
 --int_ii a b = int_nn(subN a b)
 
+
+--float_qq :: QQ -> Float --truncating float to int
+--float_qq :: QQ (n m) = fromInteger(int_ii(n))/fromInteger(int_pp(m))
+
 -- Addition: (a/b)+(c/d)=(ad+bc)/(bd)
 --addQ :: QQ -> QQ -> QQ
---addQ (QQ a b) (QQ c d) = QQ(addI(multI(a)ii_pp(d))) (multI(ii_pp(b))(c)) (multP(b)(d))
+--addQ (QQ a b) (QQ c d) = QQ(addI(multI(a (ii_pp(d))) (multI(ii_pp(b))(c)) (multP(b)(d))))
 
 -- Multiplication: (a/b)*(c/d)=(ac)/(bd)
 --multQ :: QQ -> QQ -> QQ
