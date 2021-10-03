@@ -78,18 +78,35 @@ subtrI (II a b) (II c d) =   II (addN a d) (addN b c)
 ----------------
 
 -- add positive numbers
---addP :: PP -> PP -> PP
---addP I m = T m
---addP (T p) I = T (addP p I)
+addP :: PP -> PP -> PP
+addP I m = (T m)
+addP (T n) m = T (addP n m)
 
 -- multiply positive numbers
--- multP :: PP -> PP -> PP
+multP :: PP -> PP -> PP
+multP I m = m
+multP (T n)m = addP(multP n m )m
 -- T and I but T is successor and I is one
 -- I m = m
 
 
 -- convert numbers of type PP to numbers of type II
 --ii_pp :: PP -> II
+
+nn_int :: Integer -> NN
+nn_int 0 = O
+nn_int n = addN (S(O)) (nn_int(n-1))
+
+
+int_nn :: NN->Integer
+int_nn O = 0
+int_nn (S n) = 1+ int_nn n
+
+ii_int:: Integer->II
+ii_int n = II(nn_int n ) O
+
+--int_ii ::  II -> Integer
+--int_ii a b = int_nn(subN a b)
 
 -- Addition: (a/b)+(c/d)=(ad+bc)/(bd)
 --addQ :: QQ -> QQ -> QQ
@@ -100,9 +117,7 @@ subtrI (II a b) (II c d) =   II (addN a d) (addN b c)
 --multQ (QQ a b) (QQ c d)= QQ(multP(a)(c)) (multP(b)(d))
 --multQ :: (QQ a b) (QQ c d)= QQ(multI(ii_pp(a))(c)) (multImultI(ii_pp(b))(d))
 
-addP :: PP -> PP -> PP
-addP I m = (T m)
-addP (T n) m = T (addP n m)
+
 
 
 --addition (a/b)+(c/d)=(ad+bc)/(bd)
@@ -144,6 +159,7 @@ main = do
     print $ addP (T (T I)) (T I)
     print $ addP (T (T I)) (T (T (T I)))
 
+    print $ multP (T (T I)) (T I)
     print $ addI (II (S (S O)) (S O))  (II (S (S (S O))) (S (S O)))
 
     print $ subtrI (II (S (S O)) (S O))  (II (S (S (S O))) (S (S O)))
