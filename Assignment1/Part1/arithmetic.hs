@@ -70,8 +70,8 @@ addI (II a b) (II c d) = II (addN a c) (addN b d)
 --multI (II a b) (II c d) = II (addN (multN a c) (multN b d)) (II addN (multN a d) (b c))
 
 -- II Subtraction (a-b)-(c-d)=(a+d)-(b+c)
---subtrI :: II -> II -> II
---subtrI (a b) (c d) = subN
+subtrI :: II -> II -> II
+subtrI (II a b) (II c d) =   II (addN a d) (addN b c)
 
 ----------------
 -- QQ Arithmetic
@@ -145,6 +145,8 @@ main = do
     print $ addP (T (T I)) (T (T (T I)))
 
     print $ addI (II (S (S O)) (S O))  (II (S (S (S O))) (S (S O)))
+
+    print $ subtrI (II (S (S O)) (S O))  (II (S (S (S O))) (S (S O)))
 
 
 
