@@ -105,6 +105,15 @@ int_nn (S n) = 1+ int_nn n
 ii_int:: Integer->II
 ii_int n = II(nn_int n ) O
 
+pp_int :: Integer -> PP
+pp_int 1 = I
+pp_int n = (T(pp_int(n-1)))
+
+--int_ii :: II -> Integer
+--pp_int :: Integer -> PP
+--int_pp :: PP->Integer
+
+
 --int_ii ::  II -> Integer
 --int_ii a b = int_nn(subN a b)
 
