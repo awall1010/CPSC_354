@@ -109,8 +109,14 @@ pp_int :: Integer -> PP
 pp_int 1 = I
 pp_int n = (T(pp_int(n-1)))
 
+
+int_pp ::PP->Integer
+int_pp I =1
+int_pp(T n) = 1+ int_pp n
+
+
 --int_ii :: II -> Integer
---pp_int :: Integer -> PP
+
 --int_pp :: PP->Integer
 
 
