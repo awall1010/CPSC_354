@@ -4,16 +4,6 @@
 -- Data types of the VM
 -----------------------
 
---nn_int :: Integer -> NN
---int_nn :: NN->Integer
---ii_int :: Integer -> II
---int_ii :: II -> Integer
---pp_int :: Integer -> PP
---int_pp :: PP->Integer
-
-
-
-
 
 -- Natural numbers
 data NN = O | S NN
@@ -158,8 +148,8 @@ multQ (QQ a b) (QQ c d) = QQ (multI a c) (multP b d)
 --convert number of type PP to type II (PP is a recursive data type)
 
 
---nbv :: II -> II
---nbv n =
+nbv :: II -> II
+nbv n = ii_int(int_ii n)
 ----------
 -- Testing
 ----------
