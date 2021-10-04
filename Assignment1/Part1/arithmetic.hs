@@ -67,7 +67,8 @@ addI (II a b) (II c d) = II (addN a c) (addN b d)
 multI :: II -> II -> II
 multI (II a b) (II c d) = II (addN (multN a c) (multN b d)) (addN (multN a d)(multN b c))
 
---negI :: II -> II
+negI :: II -> II
+negI (II a b)  = II b a
 
 
 -- II Subtraction (a-b)-(c-d)=(a+d)-(b+c)
@@ -93,7 +94,6 @@ multP (T n)m = addP(multP n m )m
 -- convert numbers of type PP to numbers of type II
 ii_pp :: PP -> II
 ii_pp I = II(S O) O
---ii_pp (T n) =addI (II (S O) O) (ii_pp n)
 
 nn_int :: Integer -> NN
 nn_int 0 = O
@@ -148,14 +148,8 @@ multQ (QQ a b) (QQ c d) = QQ (multI a c) (multP b d)
 ----------------
 -- Normalization
 ----------------
---put it all in ii_int()
-
---add(S n) m = S (add n m)
---   n=x-1 y         x-1
-
 --normalizeI :: II -> II
---II (S(S O)) (S O)
---II (S O ) O
+
 
 ----------------------------------------------------
 -- Converting between VM-numbers and Haskell-numbers
