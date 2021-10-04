@@ -138,8 +138,11 @@ multQ (QQ a b) (QQ c d) = QQ (multI a c) (multP b d)
 ----------------
 -- Normalization
 ----------------
---normalizeI :: II -> II
 
+normalizeI :: II -> II
+normalizeI (II n O) = (II n O)
+normalizeI (II O n) = (II O n)
+normalizeI (II (S n) (S m)) = normalizeI (II n m)
 
 ----------------------------------------------------
 -- Converting between VM-numbers and Haskell-numbers
@@ -172,8 +175,8 @@ main = do
 
     print $ subtrI (II (S (S O)) (S O))  (II (S (S (S O))) (S (S O)))
 
-    --print $ float_qq (addQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
-    --print $ float_qq (multQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
+    print $ float_qq (addQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
+    print $ float_qq (multQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
 
 
 
