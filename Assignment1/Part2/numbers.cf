@@ -2,5 +2,14 @@ Plus. Exp ::= Exp "+" Exp1 ;
 Times. Exp1 ::= Exp1 "*" Exp2 ;
 Minus. Exp1::= Exp1 "-" Exp2 ;
 Num. Exp2 ::= Integer ;
+Num. Exp3 ::= Integer ;
+Power. Exp1 ::= Exp1 "^" Exp2;
+Divide. Exp1 ::= Exp1 "/" Exp2;
+--Absolute. Exp2 ::= "abs" Exp2; --wanted to do this but syntax wasnt working.
+Modulo. Exp1 ::= Exp1 "%" Exp2;
+Negate. Exp3 ::= "-" Exp3;
+Square. Exp1 ::= "$" Exp1;
+--Exp::= "("Exp")";
 
 coercions Exp 2 ;
+--eval 1 and eval2 go up to exp4
