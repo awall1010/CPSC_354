@@ -65,8 +65,10 @@ addI :: II -> II -> II
 addI (II a b) (II c d) = II (addN a c) (addN b d)
 
 multI :: II -> II -> II
---multI (II a b) (II c d) = II (addN (multN a c) (multN b d)) (II addN (multN a d) (b c))
 multI (II a b) (II c d) = II (addN (multN a c) (multN b d)) (addN (multN a d)(multN b c))
+
+--negI :: II -> II
+
 
 -- II Subtraction (a-b)-(c-d)=(a+d)-(b+c)
 subtrI :: II -> II -> II
@@ -85,13 +87,13 @@ addP (T n) m = T (addP n m)
 multP :: PP -> PP -> PP
 multP I m = m
 multP (T n)m = addP(multP n m )m
--- T and I but T is successor and I is one
--- I m = m
+
 
 
 -- convert numbers of type PP to numbers of type II
 ii_pp :: PP -> II
 ii_pp I = II(S O) O
+--ii_pp (T n) =addI (II (S O) O) (ii_pp n)
 
 nn_int :: Integer -> NN
 nn_int 0 = O
@@ -117,40 +119,37 @@ int_pp(T n) = 1+ int_pp n
 
 
 
---int_ii :: II -> Integer
-
-
 
 int_ii ::  II -> Integer
 int_ii (II (O) (O)) = 0
 int_ii (II (n) (m)) = int_nn(n) - int_nn(m)
 
 
---float_qq :: QQ -> Float --truncating float to int
---float_qq :: QQ (n m) = fromInteger(int_ii(n))/fromInteger(int_pp(m))
+float_qq :: QQ -> Float --truncating float to int data QQ =  QQ II PP
+float_qq (QQ n m) = fromInteger(int_ii(n))/fromInteger(int_pp(m))
 
 -- Addition: (a/b)+(c/d)=(ad+bc)/(bd)
---addQ :: QQ -> QQ -> QQ
---addQ (QQ a b) (QQ c d) = QQ(addI(multI(a (ii_pp(d))) (multI(ii_pp(b))(c)) (multP(b)(d))))
+addQ :: QQ -> QQ -> QQ
+addQ (QQ a b) (QQ c d) = QQ (addI (multI a (ii_pp d)) (multI (ii_pp b) c)) (multP b d)
 
 -- Multiplication: (a/b)*(c/d)=(ac)/(bd)
---multQ :: QQ -> QQ -> QQ
---multQ (QQ a b) (QQ c d)= QQ(multP(a)(c)) (multP(b)(d))
---multQ :: (QQ a b) (QQ c d)= QQ(multI(ii_pp(a))(c)) (multImultI(ii_pp(b))(d))
+multQ :: QQ -> QQ -> QQ
+multQ (QQ a b) (QQ c d) = QQ (multI a c) (multP b d)
+
 
 
 
 
 --addition (a/b)+(c/d)=(ad+bc)/(bd)
---addQ ::QQ->QQ->QQ
---addQ :: (QQ a b) (QQ c d) = QQ(addI(multI(a)ii_pp(d))) (multI(ii_pp(b))(c)) (multP(b)(d))
---addI(MultI(a)(ii_pp(d))(ii_pp(b))(c)) (multI(ii_pp(b))ii_p(d))
+
 
 
 
 ----------------
 -- Normalization
 ----------------
+--put it all in ii_int()
+
 --add(S n) m = S (add n m)
 --   n=x-1 y         x-1
 
@@ -163,17 +162,21 @@ int_ii (II (n) (m)) = int_nn(n) - int_nn(m)
 ----------------------------------------------------
 
 --convert number of type PP to type II (PP is a recursive data type)
---ii_pp I = II(S O) O --how to get started
---ii_pp(T n)= addI (S O) n-- how to do +1 of integers? ... ii_pp ... n (needs to be on right side again because recursion)
---ii_pp :: pp-> II
 
 
+--nbv :: II -> II
+--nbv n =
 ----------
 -- Testing
 ----------
 main = do
     print $ addN (S (S O)) (S O)
     --print $
+    let i = 4
+    let j = 2
+    let k = 1
+    let l = 3
+
     print $ subN (S(S (S O))) (S O)
     print $ multN (S (S O)) (S (S (S O)))
     print $ addP (T I) (T I)
@@ -184,6 +187,9 @@ main = do
     print $ addI (II (S (S O)) (S O))  (II (S (S (S O))) (S (S O)))
 
     print $ subtrI (II (S (S O)) (S O))  (II (S (S (S O))) (S (S O)))
+
+    --print $ float_qq (addQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
+    --print $ float_qq (multQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
 
 
 
