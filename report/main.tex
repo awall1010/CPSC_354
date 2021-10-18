@@ -1,0 +1,221 @@
+\documentclass{article}
+
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage[usenames]{color}
+\usepackage{hyperref}
+  \hypersetup{
+    colorlinks = true,
+    urlcolor = blue,       % color of external links using \href
+    linkcolor= blue,       % color of internal links
+    citecolor= blue,       % color of links to bibliography
+    filecolor= blue,        % color of file links
+    }
+
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=haskell,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+
+\title{CPSC-354 Report}
+\author{Aidan Wall  \\ Chapman University}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Short introduction to your report \ldots
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}\label{intro}
+
+Replace Section~\ref{intro} with your own short introduction.
+
+
+
+
+
+
+
+\section{Haskell}\label{haskell}
+
+
+
+
+This section will contain your own introduction to Haskell.
+\subsection{What is Haskell?}
+
+
+Haskell is "An advanced, purely functional programming language". Haskell is statically typed, meaning that every expression that has a type is determined at compile time. Similar to other languages, type matching and declaration of types are very important, as the code will be rejected at compile time. This is similar to other programs such as C based languages or Java, where if the right types of values are not used it will not compile. Here are some examples of type declarations.
+
+\begin{lstlisting}
+-- Basic Type Declarations
+char = 'x'     :: Char
+int = 22       :: Int
+pair = ('a',1) :: (Char, Integer)
+\end{lstlisting}
+\\
+Haskell also recognizes stings as lists of Chars so to declare strings in Haskell you must make it a list of Chars. Haskell also provides type synonyms which are used for commonly used types.
+\\
+\begin{lstlisting}
+-- String  Declarations
+type String        =      [Char]
+type Restaurant    =      (restName, restAddress)
+type restName      =      String
+type restAddress   =      String
+\end{lstlisting}
+\\
+Haskell is a "purely functional programming language". Before we get too into depth about the advantages of Haskell we first must understand what a functional programming language is and how it differs from a Imperative Programming Language. A functional programming language is a type of declarative programming that is high-level where the programmer must specify step by step what function the computer will perform. Here is a diagram showing some of the differences between functional and imperative programming styles.
+\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=100mm,scale=.5]{funcImage}
+    % \caption{An image of a galaxy}
+    % \label{fig:galaxy}
+\end{figure}
+
+% \includegraphics{funcImage}
+\\
+Basically, in a functional programming language, you declare the problem and that is the solution.
+\\
+\\
+
+"Haskell lends itself well to concurrent programming due to its explicit handling of effects. Its flagship compiler, GHC, comes with a high-performance parallel garbage collector and light-weight concurrency library containing a number of useful concurrency primitives and abstractions". Haskell makes it very easy to create and use threads. Threads are useful for programmers when a program has many different tasks that are to be done separately from the others. This is useful if one task is blocked, the program can still complete other tasks using different threads and will not be blocked. Overall, threads and simple implementation is a huge benefit to programmers.
+
+\\
+Haskell is considered a "Lazy" programming languages, meaning "functions don't evaluate their arguments". This means that it is very easy to write control constructs (such as if/else, AND, OR, NOT) and they can be expressed just by writing normal functions.
+\\
+\begin{lstlisting}
+when p m = if p then m else return()
+\end{lstlisting}
+\\
+PACKAGES
+Haskell has a ton of open source contributions and there are many publicly available packages for all sorts of tasks.
+
+\subsubsection{Haskell vs Python, a comparison}
+What are the main differences between Haskell and a language like Python?
+
+@misc{WinNT,
+  title = {Python vs Haskell},
+  howpublished = {\url{https://wiki.python.org/moin/PythonVsHaskell}},
+  note = {Accessed: 2021-10-15}
+}
+
+Python offers programmers many different styles, including procedural, functional, and object-oriented programming styles \cite{WinNT} but it is tricky to use and implement functional programming in Python. Haskell is  a functional programming language, but can support procedural programming through the use of monads, see more below.
+Python is a interpreted language. Haskell typically uses a compiler (the one most commonly used that we will learn about is GHC). Haskell and Python are both considered high-level languages, so they compromise on speed compared to C o C++. Through Haskell's type system and declaration Haskell does provide more information at compile time than when running Python, meaning that Haskell does have a speed advantage over Python. "Haskell and Python have strong (not weak) typing, meaning instances of a type cannot be cast into another type" (Same citation). The difference between the two is that Haskell has static typing, and Python has dynamic typing. In statically typed languages, all variables and their types are known when compiled. On the other hand, in dynamically typed languages, the types of variables is not known until run time and "objects can pretend to be different types by providing the correct functions" (Same citation). Some other differences include Haskell having a much greater learning curve for those who are not accustomed to functional programming. To many, lazy evaluation is hard to grasp for someone who has exclusively coded in imperative programming languages.
+
+
+\begin{itemize}
+  \item List Comprehension Syntax:
+  \begin{itemize}
+    \item
+    \end{itemize}
+  \item Significant Whitespace:
+    \begin{itemize}
+    \item
+    \end{itemize}
+  \item Learning Curve:
+    \begin{itemize}
+    \item
+    \end{itemize}
+
+\end{itemize}
+
+
+
+
+
+
+\subsection{More about Haskell}
+\subsubsection{Recursion}
+Recursion is a very important part of programming in Haskell. Recursion is a very important part of all functional programming languages. A common example of how recursion works is the fibonacci sequence. You write down the mathematical equation and then you are done.
+
+\begin{lstlisting}
+Fib b = Fib(n-2) + Fib(n-1)
+Fib 4 = Fib(3)   + Fib(2)
+      = (Fib(1) + Fib(0)) + Fib(2)
+      = (Fib()
+\end{lstlisting}
+
+% Haskell supports procedural programming through monads
+
+
+\subsubsection{Haskell for Beginners}
+\begin{itemize}
+  \item Use recursion instead of loops
+  \begin{itemize}
+    \item
+    \end{itemize}
+  \item No Assignments
+  \item Pattern Matching and Case Destinctions
+  \item Computation is equational reasoning
+  \item Use types
+  \item Correct placement of spaces and parenthesis
+  \item Make use of error messages
+  \item Function Declaration
+  \item Let Function
+\end{itemize}
+
+
+
+\medskip\noindent
+To typeset Haskell there are several possibilities. For the example below I took the LaTeX code from \href{https://stackoverflow.com/a/3175141/4600290}{stackoverflow} and the Haskell code from \href{https://hackmd.io/@alexhkurz/HylLKujCP}{my tutorial}.
+
+\begin{lstlisting}
+-- run the transition function on a word and a state
+run :: (State -> Char -> State) -> State -> [Char] -> State
+run delta q [] = q
+run delta q (c:cs) = run delta (delta q c) cs
+\end{lstlisting}
+
+\medskip\noindent
+This works well for short snippets of code. For entire programs, it is better to have external links to, for example, Github or \href{https://replit.com/@alexhkurz/automata01#main.hs}{Replit} (click on the "Run" button and/or the "Code" tab).
+
+
+\section{Programming Languages Theory}
+
+In this section you will show what you learned about the theory of programming languages.
+
+\section{Project}
+
+In this section you will describe a short project. It can either be in Haskell or of a theoretical nature,
+
+\section{Conclusions}\label{conclusions}
+Short conclusion.
+
+\begin{thebibliography}{99}
+\bibitem[PL]{PL} \href{https://github.com/alexhkurz/programming-languages-2021/blob/main/README.md}{Programming Languages 2021}, Chapman University, 2021.
+\end{thebibliography}
+
+\end{document}
