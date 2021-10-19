@@ -175,16 +175,94 @@ Fib 4 = Fib(3)   + Fib(2)
 \begin{itemize}
   \item Use recursion instead of loops
   \begin{itemize}
-    \item
+    \item To calculate the length of a list in Haskell using recursion
+    \begin{lstlisting}
+    len[0] = 0
+    len(x:xs) = 1 + len(xs) -- where x is the head of the list and xs is the tail
+
+\end{lstlisting}
     \end{itemize}
   \item No Assignments
-  \item Pattern Matching and Case Destinctions
-  \item Computation is equational reasoning
-  \item Use types
+  \begin{itemize}
+    \item len[] = 0
+    \item Write it down as a mathematical equation stating a fact
+    \item Mathematical equations do not have a direction but Haskell functions do
+   \end{itemize}
+  \item Function Declaration
+  \begin{itemize}
+      \item When defining a function you initialize them in a similar way to how you call it. First the function name  followed by your parameters separated by spaces.
+      \item You also need to declare the type of what you are working with before you do anything else.
+      \item For example, if you have a function addI that adds integers, you have to declare it as
+        \begin{lstlisting}
+    addI :: II -> II -> II
+\end{lstlisting}
+      \item This means that in the function addI, you are taking the first II, adding it to the second II and the third value is of type II
+
+  \end{itemize}
+
+
+
+  \item Pattern Matching and Case Distinctions
+  \item Computation is equational reasoning, length function example
+    \begin{lstlisting}
+len(x:xs)= 1 + len xs
+len[4,-2,3] = 1+len[-2,3]
+len[-2,3] = 1 + (1 + len[3])
+len[3] = 1+(1+(1 + len[])))
+
+\end{lstlisting}
+  \item Using types
+  \begin{itemize}
+      \item Declaring return types of functions
+      \begin{lstlisting}
+len:: [x] -> int
+\end{lstlisting}
+      \item The return type of type list of type int is int
+      \begin{lstlisting}
+Func:: a->b->c->d
+\end{lstlisting}
+    \item In the function "Func" declared above, (a b and c are input types and last, d is output type). The last variable declared is always the output variable, and the rest are input variables.
+    \item In a C o C++ an addition function of two numbers would look something like this
+          \begin{lstlisting}
+int add(int x, int y){
+return x + y;
+}
+\end{lstlisting}
+    \item In comparison, in Haskell, a function to add two numbers would look something like this
+    \begin{lstlisting}
+add:: Int->Int->Int
+add x y = x + y
+\end{lstlisting}
+    \item It is/should not declared as add(Int, Int) -> Int to specify two Int input variables and returns and Int. It is possible to do that syntax and it won't fail but there are many benefits to using arrow notation.
+    \item For example, if we want to implement a function that takes an Int and adds 3 to it. We can use the already declared add function and it would look something like this.
+
+    \begin{lstlisting}
+plusThree = add 3 :: Int -> Int
+\end{lstlisting}
+    \item This function takes one Int input, then calls add and passes 3 to that the addition function as long and returns an Int %(Clean Up Wording)
+
+
+  \end{itemize}
   \item Correct placement of spaces and parenthesis
   \item Make use of error messages
+    \begin{itemize}
+    % \end{itemize}
+      \item In C or C++ you would call the function add(2,3) to pass arguments and get the answer 5.
+      \item In Haskell you would call it add 2 3. Haskell is very strict on syntax so trying anything else would fail. If you tried add(2 3) would fail and the error message would be "maybe you have not applied the function to enough arguments”. Everything inside the parenthesis is interpreted as one argument so the function is only registering one argument.
+      \item Even if you try add(2,3) It will say "Couldn't match expected type Int with actual type (Int,Int)" This is because the expected type is Int -> Int -> Int, but the actual type of the first argument is (Int, Int). This is Haskell doing doing type inference.
+      \begin{itemize}
+          \item 2::Int 3::Int
+          \item (2,3) :: (Int,Int)
+      \end{itemize}
+    \end{itemize}
   \item Function Declaration
   \item Let Function
+  \begin{itemize}
+      \item You can use the keyword "let" in the GHCI compiler to define a variable.
+      \item For example, let x = 4 is the same as defining x = 4 in python.
+
+
+  \end{itemize}
 \end{itemize}
 
 
