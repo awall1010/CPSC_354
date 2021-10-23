@@ -177,9 +177,3 @@ main = do
 
     print $ float_qq (addQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
     print $ float_qq (multQ (QQ (ii_int i) (pp_int j)) (QQ (ii_int k) (pp_int l)))
-
-
-
-
-    --multP O m = O
-    --multP (S n) m = addN (multN n m) m
