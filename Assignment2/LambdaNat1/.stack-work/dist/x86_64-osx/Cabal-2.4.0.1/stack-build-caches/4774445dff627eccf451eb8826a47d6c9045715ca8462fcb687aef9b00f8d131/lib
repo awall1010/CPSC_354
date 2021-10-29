@@ -1,0 +1,28 @@
+/Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/src/AbsLambdaNat.hs:
+  hash: 5615ee307ee4f56da20c3c7f4967bc6d2422c8b03deff73ba4bae69f6e2114fd
+/Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/src/PrintLambdaNat.hs:
+  hash: 6b4d19b520cbe1f74a26b24fb4803d98564a5bfe9867be44f6d137ee721d5ef4
+? /Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/.stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/autogen/cabal_macros.h
+: hash: df17e23371bddbbf30c0e14a293ddbf47edf34e0a3c92ad8609171c57beb42af
+/Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/package.yaml:
+  hash: b8d8fbf1254b0c779a7866ff27e59097372916566ea7f8ed4b925988785c2605
+/Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/src/ErrM.hs:
+  hash: 91d43beb5d7e2ec1cc78ad4b1f07da9a2ede237b0ea36357e01eb250d1017437
+/Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/src/Interpreter.hs:
+  hash: 080f7ad2c74845e46f9df1f5420adbf0694690e4c4d4a95ea3e96175cf46e399
+/Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/src/ParLambdaNat.hs:
+  hash: 16c025ac23f6e066736e26244dae52a7a70047b5d2d6b7aa9a5cef657f117b8c
+/Users/aidanwall/.stack/programs/x86_64-osx/ghc-8.6.4/lib/ghc-8.6.4/include/ghcplatform.h:
+  hash: 1549d9c64c43be2e2b2f756146f102c311441a9d63e1a1cd3b33e34c67e39688
+/Users/aidanwall/.stack/programs/x86_64-osx/ghc-8.6.4/lib/ghc-8.6.4/include/ghcautoconf.h:
+  hash: f0efd2bdcf82a9005ea5631525474821818b8ff9911d33d958d9603d0f56cd78
+/Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/src/LexLambdaNat.hs:
+  hash: 35f805af7629f2c095790cdbc353b55fec29def22766bc41c0b9f8b9a28a73a1
+? /Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/.stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/autogen/Paths_LambdaNat.hs
+: hash: e4d720bce3bfca4e1a11d78441a2a038fd767cce62a227ff64bbf6005f8bd152
+/Users/aidanwall/Documents/CPSC_Courses/programming-languages-2021/Lab1-Lambda-Calculus/LambdaNat1/LambdaNat.cabal:
+  hash: 391619f93065ebe98c37bc635d210cdb5763e02ed0e4e45f09a5a82e939efd9a
+/Users/aidanwall/.stack/programs/x86_64-osx/ghc-8.6.4/lib/ghc-8.6.4/include/ghcversion.h:
+  hash: 529291d4a255ef1c3ec99116d8dca391f2db7bad8b5eab6dcbf9a70354c6eedf
+/Users/aidanwall/.stack/programs/x86_64-osx/ghc-8.6.4/lib/ghc-8.6.4/include/ghcconfig.h:
+  hash: 03f4611ae97decc9e8c76c212bf7886d003b29d5c62b43fee6623a799f6e5fdf
