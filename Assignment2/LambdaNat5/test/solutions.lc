@@ -1,6 +1,28 @@
-member
-remove
-sum
-prod
-plust_two, map
-insert, sort
+//member
+//let rec member = \elem. \list.
+  //if (hd list) = elem then 1 else 0
+    //if (tl list) = # then 0 else
+      //member elem (tl list)
+
+//in member 3 2:1:3:#
+
+
+//remove
+//sum
+//prod
+//plust_two, map
+
+//insert
+let rec insert = \ int. \ list.
+  if list = # then (int: #) else
+    if (int) less_equal (hd list) = 1 then (int : list) else
+      (hd list):(insert int (tl list))
+
+in
+
+//sort
+let rec sort = \ list.
+  if list = # then # else
+    insert (hd list ) (sort(tl list))
+in
+sort 1:2:3:1:2:3:#
