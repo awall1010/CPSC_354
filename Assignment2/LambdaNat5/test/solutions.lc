@@ -1,18 +1,57 @@
 //member
-//let rec member = \elem. \list.
-  //if (hd list) = elem then 1 else 0
-    //if (tl list) = # then 0 else
-      //member elem (tl list)
+let rec member = \ elem. \list.
+  if list = # then 0 else
+    if hd list = elem then 1 else
+      member elem (tl list)
+in
+member 3 2:3:1:#
+;;
 
-//in member 3 2:1:3:#
 
 
-//remove
-//sum
-//prod
-//plust_two, map
+//removeList
+let rec removeList = \ elem. \list.
+  if hd list = # then # else
+    if hd list = elem then (tl list) else
+      (hd list) : (removeList elem (tl list))
+in
+removeList 3 2:3:1#
 
-//insert
+;;
+
+
+//sumList
+let rec sumList = \list.
+  if list=# then 0 else
+    if (tl list)=# then (hd list) else
+      ((hd list) + (sumList (tl list)))
+in
+sumList 1:2:3:4:#
+;;
+
+//prodList
+let rec prodList = \list.
+  if prodList = # then 1 else
+    (hd prodList) * prodList(tl list)
+in
+prod 1:2:3:4:#
+
+;;
+
+//plus_two, mapList
+let plus_two = \int.
+  (2) + (int)
+in
+let rec mapList = \func. \list.
+  if list = # then # else
+    (func (hd list)) : (mapList func (tl list))
+in
+mapList plus_two 1:2:3:4:#
+;;
+
+
+
+//list, list
 let rec insert = \ int. \ list.
   if list = # then (int: #) else
     if (int) less_equal (hd list) = 1 then (int : list) else
@@ -20,9 +59,9 @@ let rec insert = \ int. \ list.
 
 in
 
-//sort
 let rec sort = \ list.
   if list = # then # else
     insert (hd list ) (sort(tl list))
 in
 sort 1:2:3:1:2:3:#
+;;
