@@ -25,13 +25,15 @@ evalCBN ENil = Enil
 evalCBN(Econs e1 e2) = ECons (evalCBN e1) (evalCBN e2)
 
 -- evalCBN (EHd e)
-evalCBN (EHd e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e1
+evalCBN (EHd e) = case (evalCBN e) of
+    (ECons e1 _) -> evalCBN e1
   ENil -> ENil
 
 
 -- evalCBN (ETl e)
-evalCBN (Etl e) = case (evalCBN e) of (ECons e1 e2) -> evalCBN e2
-  ENil -> ENil
+evalCBN (Etl e) = case (evalCBN e) of
+    (ECons _ e1) -> evalCBN e1
+
 
 
 -- evalCBN (ELE e1 e2)
@@ -95,3 +97,11 @@ subst id s (EPlus e l) = EPlus (subst id s e) (subst id s l)
 subst id s (EMinus e l) = EMinus (subst id s e) (subst id s l)
 subst id s (ETimes e l) = ETimes (subst id s e) (subst id s l)
 -- add the missing cases
+
+
+--need type def for prod and sum
+
+mapList :: (a->b) -> [a] -> [b]
+--mapList Int -> [Int] -> [Int]
+mapList :: f [] = []
+mapList f (x:xs) = f + x : mapList f xs
