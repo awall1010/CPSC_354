@@ -27,7 +27,7 @@ evalCBN(Econs e1 e2) = ECons (evalCBN e1) (evalCBN e2)
 -- evalCBN (EHd e)
 evalCBN (EHd e) = case (evalCBN e) of
     (ECons e1 _) -> evalCBN e1
-  ENil -> ENil
+
 
 
 -- evalCBN (ETl e)
