@@ -6,7 +6,7 @@ member x (y:ys) | x==y = True
 removeList :: Int -> [Int] -> [Int]
 removeList _ [] = []
 removeList x (y:ys) | x == y = ys
-                | otherwise = y : remove x ys
+                | otherwise = y : removeList x ys
 
 sumList :: [Int] -> Int
 sumList [] = 0
