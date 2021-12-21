@@ -58,29 +58,29 @@ getUserInput = rockpaperscissors <$> getLine --getLine function gets user input
 game :: (Int, Int, Int) -> IO a
 game (rock, paper, scissor) = do
   putStrLn "rock, paper or scissors?"
-  h <- getUserInput 
-  putStrLn ("You entered: " ++show h)
-  c <- dorps (rock, paper, scissor)
+  userInp <- getUserInput 
+  putStrLn ("You entered: " ++show userInp)
+  compInp <- dorps (rock, paper, scissor)
   putStrLn ("")
-  putStrLn ("Player: " ++ show h ++ "\nComputer: " ++ show c)
+  putStrLn ("Player: " ++ show userInp ++ "\nComputer: " ++ show compInp)
 
   putStrLn
 
-    (if beats h c
+    (if beats userInp compInp
        then do "Player Wins\n"
-       else if beats c h
+       else if beats userInp compInp
               then "Payer Loses\n"
               else "Draw\n")
   let rr =
-        if h == Rock
+        if userInp == Rock
           then rock + 1
           else rock
       pp =
-        if h == Paper
+        if userInp == Paper
           then paper + 1
           else paper
       ss =
-        if h == Scissors
+        if userInp == Scissors
           then scissor + 1
           else scissor
   game (rr, pp, ss)
